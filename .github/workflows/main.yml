@@ -1,14 +1,19 @@
-app:
-  name: MyApp
-  version: 1.0.0
-  debug: true
+name: CI/CD
 
-database:
-  host: localhost
-  port: 5432
-  username: admin
-  password: secret
+on: push
 
-features:
-  - authentication
-  - payments
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a one-line script
+        run: echo "Hello, CI/CD!"
+
+      # - name: Simulate an error
+      #   run: echo "About to fail" ; exit 1
+
+      - name: Another greeting
+        run: echo "Hello, CI/CD again!"
